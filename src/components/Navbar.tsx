@@ -4,7 +4,6 @@ import { Menu, X, ShoppingCart, Globe } from 'lucide-react';
 import { useCartStore } from '../stores/cartStore';
 import { useAuthStore } from '../stores/authStore';
 import { useLanguageStore } from '../stores/languageStore';
-import { useSettingsStore } from '../stores/settingsStore';
 import { translations } from '../lib/translations';
 
 export default function Navbar() {
