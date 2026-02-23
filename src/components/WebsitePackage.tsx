@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Star, ShoppingCart } from 'lucide-react';
 import { useCartStore } from '../stores/cartStore';
 
@@ -8,6 +9,8 @@ interface WebsitePackageProps {
   price: number;
   features: string[];
   popular?: boolean;
+  priceLabel?: string;
+  language?: 'es' | 'en';
 }
 
 export default function WebsitePackage({
@@ -17,17 +20,27 @@ export default function WebsitePackage({
   price,
   features,
   popular = false,
+  priceLabel = '/month',
+  language = 'en',
 }: WebsitePackageProps) {
+  const [quantity, setQuantity] = useState(
+    id === 'starter' ? 2 : id === 'professional' || id === 'enterprise' ? 5 : 1
+  );
   const addItem = useCartStore((state) => state.addItem);
+
+  const computeTotalPrice = () => {
+    if (id === 'starter') return price * quantity;
+    if (id === 'professional' || id === 'enterprise') return price + Math.max(0, quantity - 5) * 25;
+    return price;
+  };
 
   const handleAddToCart = () => {
     addItem({
       id,
       name,
-      price,
-      quantity: 1,
+      price: computeTotalPrice(),
       type: 'website',
-      details: { description, features },
+      details: { description, features, pages: id === 'starter' || id === 'professional' || id === 'enterprise' ? quantity : 1 },
     });
   };
 
@@ -50,7 +63,7 @@ export default function WebsitePackage({
 
       <div className="mb-10">
         <span className="text-5xl font-bold">${price}</span>
-        <span className={popular ? 'text-blue-100' : 'text-gray-600'}>/month</span>
+        <span className={popular ? 'text-blue-100' : 'text-gray-600'}>{priceLabel}</span>
       </div>
 
       <ul className="space-y-5 mb-10">
@@ -64,6 +77,35 @@ export default function WebsitePackage({
           </li>
         ))}
       </ul>
+
+      {(id === 'starter' || id === 'professional' || id === 'enterprise') && (
+        <div className="mb-8">
+          <label className={`block text-sm font-semibold mb-3 ${popular ? 'text-white' : 'text-gray-700'}`}>
+            {language === 'es' ? 'Número de páginas:' : 'Number of Pages:'}
+            {(id === 'professional' || id === 'enterprise') && language === 'es' ? ' (mín 5)' : ''}
+            {(id === 'professional' || id === 'enterprise') && language === 'en' ? ' (min 5)' : ''}
+          </label>
+          <input
+            type="number"
+            min={id === 'starter' ? 2 : 5}
+            max={20}
+            value={quantity}
+            onChange={(e) => setQuantity(Math.min(Math.max(parseInt(e.target.value) || (id === 'starter' ? 2 : 5), id === 'starter' ? 2 : 5), 20))}
+            className={`w-full px-4 py-2 rounded-lg border ${popular
+              ? 'bg-blue-500 border-blue-400 text-white'
+              : 'bg-white border-gray-300 text-gray-900'
+              } focus:outline-none focus:ring-2 focus:ring-blue-500`}
+          />
+          {(id === 'professional' || id === 'enterprise') && (
+            <p className={`text-xs mt-2 ${popular ? 'text-blue-100' : 'text-gray-600'}`}>
+              {language === 'es' ? '+$25 por página adicional' : '+$25 per additional page'}
+            </p>
+          )}
+          <p className={`text-xs mt-2 ${popular ? 'text-blue-100' : 'text-gray-600'}`}>
+            {language === 'es' ? 'Total:' : 'Total:'} ${computeTotalPrice().toFixed(2)}
+          </p>
+        </div>
+      )}
 
       <button
         onClick={handleAddToCart}

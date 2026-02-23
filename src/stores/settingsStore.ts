@@ -8,6 +8,7 @@ interface SettingsState {
   address: string;
   latitude: number;
   longitude: number;
+  paypalClientId: string;
   isLoading: boolean;
   fetchSettings: () => Promise<void>;
 }
@@ -19,20 +20,21 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   address: '123 Web Street, Tech City, TC 12345, USA',
   latitude: 10.03025808569571,
   longitude: -84.09723544018195,
+  paypalClientId: '',
   isLoading: false,
   fetchSettings: async () => {
     set({ isLoading: true });
     try {
       const { data, error } = await supabase
         .from('Settings')
-        .select('BusinessName, Email, Phone, Address, MapLocation')
+        .select('BusinessName, Email, Phone, Address, MapLocation, PaypalClientId')
         .eq('Id', 9)
         .single();
 
       if (!error && data) {
         let lat = 10.03025808569571;
         let lng = -84.09723544018195;
-        
+
         if (data.MapLocation) {
           const coords = data.MapLocation.split(',').map((c: string) => parseFloat(c.trim()));
           if (coords.length === 2 && !isNaN(coords[0]) && !isNaN(coords[1])) {
@@ -40,14 +42,15 @@ export const useSettingsStore = create<SettingsState>((set) => ({
             lng = coords[1];
           }
         }
-        
-        set({ 
-          siteName: data.BusinessName, 
+
+        set({
+          siteName: data.BusinessName,
           email: data.Email,
           phone: data.Phone,
           address: data.Address,
           latitude: lat,
-          longitude: lng
+          longitude: lng,
+          paypalClientId: data.PaypalClientId || ''
         });
       }
     } catch (error) {

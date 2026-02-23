@@ -29,7 +29,6 @@ export default function DomainChecker({ registrars }: DomainCheckerProps) {
         id: `${domain}-${registrar.id}`,
         name: `${domain} (${registrar.name})`,
         price: registrar.price,
-        quantity: 1,
         type: 'domain',
         details: { domain, registrar: registrar.id },
       });

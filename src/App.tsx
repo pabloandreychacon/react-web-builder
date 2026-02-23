@@ -1,12 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import WhatsAppButton from './components/WhatsAppButton';
 import Home from './pages/Home';
 import Websites from './pages/Websites';
 import Domains from './pages/Domains';
-import Pricing from './pages/Pricing';
 import Contact from './pages/Contact';
 import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
 import { useLanguageInit } from './hooks/useLanguageInit';
 import { useSettingsStore } from './stores/settingsStore';
 import { useEffect } from 'react';
@@ -14,11 +15,11 @@ import { useEffect } from 'react';
 function AppContent() {
   useLanguageInit();
   const fetchSettings = useSettingsStore((state) => state.fetchSettings);
-  
+
   useEffect(() => {
     fetchSettings();
   }, [fetchSettings]);
-  
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -27,9 +28,9 @@ function AppContent() {
           <Route path="/" element={<Home />} />
           <Route path="/websites" element={<Websites />} />
           <Route path="/domains" element={<Domains />} />
-          <Route path="/pricing" element={<Pricing />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
           {/* Placeholder routes for future pages */}
           <Route path="/login" element={<div className="p-8 text-center">Login page coming soon</div>} />
           <Route path="/signup" element={<div className="p-8 text-center">Sign up page coming soon</div>} />
@@ -37,6 +38,7 @@ function AppContent() {
         </Routes>
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }

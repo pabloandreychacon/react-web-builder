@@ -1,108 +1,50 @@
-import WebsitePackage from '../components/WebsitePackage';
+import PricingGrid from '../components/PricingGrid';
+import { useLanguageStore } from '../stores/languageStore';
+import { translations } from '../lib/translations';
 
 export default function Websites() {
-  const packages = [
-    {
-      id: 'starter',
-      name: 'Starter',
-      description: 'Perfect for beginners',
-      price: 9.99,
-      features: [
-        '1 Website',
-        '100 MB Storage',
-        '5 Email Accounts',
-        'Basic Templates',
-        'Email Support',
-      ],
-    },
-    {
-      id: 'professional',
-      name: 'Professional',
-      description: 'Best for business owners',
-      price: 19.99,
-      features: [
-        '5 Websites',
-        '1 GB Storage',
-        '20 Email Accounts',
-        'Premium Templates',
-        'Advanced SEO Tools',
-        'Priority Support',
-        'Custom Domain',
-      ],
-      popular: true,
-    },
-    {
-      id: 'enterprise',
-      name: 'Enterprise',
-      description: 'For growing teams',
-      price: 49.99,
-      features: [
-        'Unlimited Websites',
-        'Unlimited Storage',
-        'Unlimited Email Accounts',
-        'All Templates',
-        'Advanced Analytics',
-        'Advanced SEO Tools',
-        'API Access',
-        '24/7 Support',
-        'Custom Development',
-      ],
-    },
-  ];
+  const { language } = useLanguageStore();
+  const t = translations[language].websites;
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <section className="bg-blue-600 text-white py-24 px-4 w-full">
+      <section className="bg-blue-600 text-white py-12 px-4 w-full">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-5xl font-bold mb-4">Website Packages</h1>
-          <p className="text-xl text-blue-100">
-            Choose the perfect plan for your online presence
-          </p>
+          <h1 className="text-3xl font-bold mb-2">{t.title}</h1>
+          <p className="text-base text-blue-100">{t.subtitle}</p>
+        </div>
+      </section>
+
+      {/* Domain Info Notice */}
+      <section className="py-8 px-4 w-full">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg shadow-sm">
+            <div className="flex items-start">
+              <div className="flex-shrink-0">
+                <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div className="ml-4">
+                <h3 className="text-lg font-bold text-blue-900">{t.domainNoticeTitle}</h3>
+                <p className="mt-1 text-blue-800">
+                  {t.domainNotice}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Packages */}
-      <section className="py-28 px-4 w-full">
+      <section className="pb-12 px-4 w-full">
         <div className="max-w-7xl mx-auto w-full">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {packages.map((pkg) => (
-              <WebsitePackage key={pkg.id} {...pkg} />
-            ))}
-          </div>
+          <PricingGrid />
         </div>
       </section>
 
-      {/* Info Section */}
-      <section className="bg-white py-28 px-4 w-full">
-        <div className="max-w-7xl mx-auto w-full">
-          <h2 className="text-4xl font-bold mb-16 text-center">What's Included?</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-            <div>
-              <h3 className="text-2xl font-bold mb-6">Website Builder</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li>✓ Drag & drop interface</li>
-                <li>✓ 100+ pre-built templates</li>
-                <li>✓ Mobile responsive design</li>
-                <li>✓ E-commerce ready</li>
-                <li>✓ SEO optimized</li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-2xl font-bold mb-6">Additional Features</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li>✓ SSL Certificate</li>
-                <li>✓ Daily backups</li>
-                <li>✓ Email marketing tools</li>
-                <li>✓ Analytics dashboard</li>
-                <li>✓ Social media integration</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Info Section removed as requested */}
     </div>
   );
 }

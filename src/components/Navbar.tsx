@@ -27,9 +27,9 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-4">
             <Link to="/" className="text-gray-700 hover:text-blue-600 transition text-sm px-2 py-2 rounded hover:bg-gray-100">{t.nav.home}</Link>
-            <Link to="/websites" className="text-gray-700 hover:text-blue-600 transition text-sm px-2 py-2 rounded hover:bg-gray-100">{t.nav.websites}</Link>
+            <Link to="/websites" className="text-gray-700 hover:text-blue-600 transition text-sm px-2 py-2 rounded hover:bg-gray-100">{t.nav.pricing}</Link>
             <Link to="/domains" className="text-gray-700 hover:text-blue-600 transition text-sm px-2 py-2 rounded hover:bg-gray-100">{t.nav.domains}</Link>
-            <Link to="/pricing" className="text-gray-700 hover:text-blue-600 transition text-sm px-2 py-2 rounded hover:bg-gray-100">{t.nav.pricing}</Link>
+            {/* Pricing link removed - prices are on Websites page */}
             <Link to="/contact" className="text-gray-700 hover:text-blue-600 transition text-sm px-2 py-2 rounded hover:bg-gray-100">{t.nav.contact}</Link>
           </div>
 
@@ -44,7 +44,7 @@ export default function Navbar() {
               <Globe className="w-4 h-4" />
               <span className="font-semibold">{language.toUpperCase()}</span>
             </button>
-            
+
             {/* Cart Icon */}
             <Link to="/cart" className="relative p-2">
               <ShoppingCart className="w-6 h-6 text-gray-700 hover:text-blue-600 transition" />
@@ -57,7 +57,7 @@ export default function Navbar() {
 
             {/* Auth Links */}
             {user ? (
-              <div className="hidden sm:flex items-center space-x-2">
+              <div className="hidden items-center space-x-2">
                 <Link to="/dashboard" className="text-gray-700 hover:text-blue-600 transition text-sm px-3 py-2">{t.nav.dashboard}</Link>
                 <button
                   onClick={() => {
@@ -70,7 +70,7 @@ export default function Navbar() {
                 </button>
               </div>
             ) : (
-              <div className="hidden sm:flex space-x-2">
+              <div className="hidden space-x-2">
                 <Link to="/login" className="text-gray-700 hover:text-blue-600 transition text-sm px-3 py-2 font-semibold">{t.nav.login}</Link>
                 <Link to="/signup" className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg transition text-sm font-semibold">{t.nav.signup}</Link>
               </div>
@@ -90,9 +90,9 @@ export default function Navbar() {
         {isMenuOpen && (
           <div className="md:hidden pb-4 space-y-3">
             <Link to="/" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded">{t.nav.home}</Link>
-            <Link to="/websites" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded">{t.nav.websites}</Link>
+            <Link to="/websites" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded">{t.nav.pricing}</Link>
             <Link to="/domains" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded">{t.nav.domains}</Link>
-            <Link to="/pricing" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded">{t.nav.pricing}</Link>
+            {/* Pricing link removed - prices are on Websites page */}
             <Link to="/contact" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded">{t.nav.contact}</Link>
             {!user && (
               <>

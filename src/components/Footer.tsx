@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguageStore } from '../stores/languageStore';
 import { useSettingsStore } from '../stores/settingsStore';
@@ -12,6 +12,7 @@ export default function Footer() {
   const phone = useSettingsStore((state) => state.phone);
   const address = useSettingsStore((state) => state.address);
   const t = translations[language].footer;
+  const whatsappNumber = phone.replace(/\D/g, '');
 
   return (
     <footer className="bg-gray-900 text-gray-300 mt-auto">
@@ -20,9 +21,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold">W</span>
-              </div>
+              <img src="/favicon.svg" alt="Logo" className="w-8 h-8 rotate-90" />
               <span className="font-bold text-lg text-white">{siteName}</span>
             </div>
             <p className="text-sm">{t.tagline}</p>
@@ -34,8 +33,8 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link to="/websites" className="hover:text-blue-400 transition">{t.websiteBuilder}</Link></li>
               <li><Link to="/domains" className="hover:text-blue-400 transition">{t.domainRegistration}</Link></li>
-              <li><Link to="/templates" className="hover:text-blue-400 transition">{t.templates}</Link></li>
-              <li><Link to="/hosting" className="hover:text-blue-400 transition">{t.hosting}</Link></li>
+              {/* <li><Link to="/templates" className="hover:text-blue-400 transition">{t.templates}</Link></li>
+              <li><Link to="/hosting" className="hover:text-blue-400 transition">{t.hosting}</Link></li> */}
             </ul>
           </div>
 
@@ -43,10 +42,10 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-white mb-4">{t.company}</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/about" className="hover:text-blue-400 transition">{t.about}</Link></li>
-              <li><Link to="/blog" className="hover:text-blue-400 transition">{t.blog}</Link></li>
+              {/* <li><Link to="/about" className="hover:text-blue-400 transition">{t.about}</Link></li>
+              <li><Link to="/blog" className="hover:text-blue-400 transition">{t.blog}</Link></li> */}
               <li><Link to="/contact" className="hover:text-blue-400 transition">{t.contactUs}</Link></li>
-              <li><Link to="/careers" className="hover:text-blue-400 transition">{t.careers}</Link></li>
+              {/* <li><Link to="/careers" className="hover:text-blue-400 transition">{t.careers}</Link></li> */}
             </ul>
           </div>
 
@@ -75,9 +74,14 @@ export default function Footer() {
           <div className="flex justify-between items-center">
             <p className="text-sm">&copy; {currentYear} {siteName}. {t.rights}</p>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-blue-400 transition"><Facebook className="w-5 h-5" /></a>
-              <a href="#" className="hover:text-blue-400 transition"><Twitter className="w-5 h-5" /></a>
-              <a href="#" className="hover:text-blue-400 transition"><Linkedin className="w-5 h-5" /></a>
+              {/* <a href="#" className="hover:text-blue-400 transition"><Facebook className="w-5 h-5" /></a> */}
+              {/* <a href="#" className="hover:text-blue-400 transition"><Twitter className="w-5 h-5" /></a> */}
+              <a href="https://www.linkedin.com/in/pabloandreychaconluna/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition">
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition">
+                <MessageCircle className="w-5 h-5" />
+              </a>
             </div>
           </div>
         </div>

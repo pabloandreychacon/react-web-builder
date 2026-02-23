@@ -1,86 +1,83 @@
-import DomainChecker from '../components/DomainChecker';
+import { useLanguageStore } from '../stores/languageStore';
+import { translations } from '../lib/translations';
+import { ExternalLink } from 'lucide-react';
 
 export default function Domains() {
-  const registrars = [
-    { id: 'hostinger', name: 'Hostinger', price: 2.99 },
-    { id: 'godaddy', name: 'GoDaddy', price: 4.99 },
-    { id: 'namecheap', name: 'Namecheap', price: 3.99 },
+  const { language } = useLanguageStore();
+  const t = translations[language].domains;
+
+  const providers = [
+    { name: 'Hostinger', url: 'https://www.hostinger.com', logo: '🌐' },
+    { name: 'GoDaddy', url: 'https://www.godaddy.com', logo: '🌐' },
+    { name: 'Namecheap', url: 'https://www.namecheap.com', logo: '🌐' },
+    { name: 'Google Domains', url: 'https://domains.google', logo: '🌐' },
+    { name: 'Cloudflare', url: 'https://www.cloudflare.com/products/registrar/', logo: '🌐' },
+    { name: 'Domain.com', url: 'https://www.domain.com', logo: '🌐' },
   ];
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <section className="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-24 px-4 w-full">
+      <section className="bg-blue-600 text-white py-12 px-4 w-full">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-5xl font-bold mb-4">Domain Registration</h1>
-          <p className="text-xl text-purple-100">
-            Find and register your perfect domain name
-          </p>
+          <h1 className="text-3xl font-bold mb-2">{t.title}</h1>
+          <p className="text-base text-blue-100">{t.subtitle}</p>
         </div>
       </section>
 
-      {/* Domain Checker */}
-      <section className="py-28 px-4 w-full">
-        <div className="max-w-5xl mx-auto w-full">
-          <DomainChecker registrars={registrars} />
-        </div>
-      </section>
-
-      {/* Domain Extensions */}
-      <section className="bg-white py-28 px-4 w-full">
-        <div className="max-w-7xl mx-auto w-full">
-          <h2 className="text-3xl font-bold mb-12 text-center">Popular Extensions</h2>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-            {[
-              { ext: '.com', price: 8.99 },
-              { ext: '.net', price: 8.99 },
-              { ext: '.org', price: 8.99 },
-              { ext: '.co', price: 9.99 },
-              { ext: '.io', price: 29.99 },
-              { ext: '.dev', price: 12.99 },
-              { ext: '.app', price: 11.99 },
-              { ext: '.blog', price: 15.99 },
-              { ext: '.shop', price: 24.99 },
-              { ext: '.online', price: 6.99 },
-              { ext: '.site', price: 10.99 },
-              { ext: '.info', price: 9.99 },
-            ].map((item) => (
-              <div
-                key={item.ext}
-                className="p-8 border border-gray-200 rounded-lg text-center hover:shadow-lg transition"
-              >
-                <div className="text-4xl font-bold text-blue-600 mb-4">{item.ext}</div>
-                <div className="text-gray-600 text-base font-medium">${item.price}/year</div>
-              </div>
-            ))}
+      {/* What is a Domain? Section */}
+      <section className="py-12 px-4 w-full border-b border-gray-200">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-3xl font-bold mb-6 text-gray-900">{t.whatIsDomain}</h2>
+              <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                {t.domainDescription}
+              </p>
+            </div>
+            <div className="bg-blue-50 p-8 rounded-2xl border border-blue-100 shadow-sm">
+              <h3 className="text-xl font-bold mb-6 text-blue-900">{t.whyBuyTitle}</h3>
+              <ul className="space-y-4">
+                {t.benefits.map((benefit, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <span className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-sm mt-0.5">
+                      ✓
+                    </span>
+                    <span className="text-blue-800">{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Benefits */}
-      <section className="bg-gray-50 py-28 px-4 w-full">
+      {/* Domain Providers */}
+      <section className="py-12 px-4 w-full">
         <div className="max-w-7xl mx-auto w-full">
-          <h2 className="text-4xl font-bold mb-16 text-center">Why Register with Us?</h2>
+          <h2 className="text-2xl font-bold mb-8">{t.popularProviders}</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div className="bg-white p-8 rounded-lg shadow">
-              <div className="text-4xl font-bold text-blue-600 mb-6">✓</div>
-              <h3 className="text-xl font-bold mb-3">Free WHOIS Privacy</h3>
-              <p className="text-gray-600">Keep your personal information private with our free WHOIS protection.</p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg shadow">
-              <div className="text-4xl font-bold text-blue-600 mb-6">✓</div>
-              <h3 className="text-xl font-bold mb-3">Free DNS Management</h3>
-              <p className="text-gray-600">Manage all your DNS records easily with our intuitive control panel.</p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg shadow">
-              <div className="text-4xl font-bold text-blue-600 mb-6">✓</div>
-              <h3 className="text-xl font-bold mb-3">24/7 Support</h3>
-              <p className="text-gray-600">Our support team is always available to help you with any issues.</p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {providers.map((provider) => (
+              <a
+                key={provider.name}
+                href={provider.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition group"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <span className="text-4xl">{provider.logo}</span>
+                    <h3 className="text-xl font-bold text-gray-900">{provider.name}</h3>
+                  </div>
+                  <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition" />
+                </div>
+                <p className="mt-4 text-sm text-blue-600 font-semibold group-hover:underline">
+                  {t.visitWebsite} →
+                </p>
+              </a>
+            ))}
           </div>
         </div>
       </section>

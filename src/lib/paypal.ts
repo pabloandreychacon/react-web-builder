@@ -42,7 +42,7 @@ export interface PayPalOrder {
 }
 
 export const paypalService = {
-  async createOrder(total: number, items: Array<{ name: string; quantity: number; price: number }>) {
+  async createOrder(total: number, items: Array<{ name: string; price: number; quantity?: number }>) {
     // Este es un ejemplo básico
     // En producción, deberías hacer la llamada al servidor
     return {
@@ -61,7 +61,7 @@ export const paypalService = {
           },
           items: items.map(item => ({
             name: item.name,
-            quantity: item.quantity.toString(),
+            quantity: (item.quantity || 1).toString(),
             unit_amount: {
               currency_code: PAYPAL_CONFIG.currency,
               value: item.price.toFixed(2),

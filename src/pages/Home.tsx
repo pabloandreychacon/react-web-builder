@@ -3,6 +3,9 @@ import { Zap, Globe, Rocket, Shield } from 'lucide-react';
 import homewebBg from '../assets/homeweb.jpg';
 import { useLanguageStore } from '../stores/languageStore';
 import { translations } from '../lib/translations';
+import PricingGrid from '../components/PricingGrid';
+// import Testimonials from '../components/Testimonials';
+// import Portfolio from '../components/Portfolio';
 
 export default function Home() {
   const { language } = useLanguageStore();
@@ -41,28 +44,24 @@ export default function Home() {
 
           {/* Stats */}
           <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
-            <div className="animate-bounce animation-delay-100">
-              <div className="text-3xl font-bold">10K+</div>
-              <div className="text-blue-100">{t.hero.websitesBuilt}</div>
+            <div className="animate-bounce animation-delay-100 flex flex-col items-center justify-center">
+              <div className="text-xl font-bold leading-tight">{t.hero.heroStat1}</div>
             </div>
-            <div className="animate-bounce animation-delay-300">
-              <div className="text-3xl font-bold">5K+</div>
-              <div className="text-blue-100">{t.hero.activeUsers}</div>
+            <div className="animate-bounce animation-delay-300 flex flex-col items-center justify-center">
+              <div className="text-xl font-bold leading-tight">{t.hero.heroStat2}</div>
             </div>
-            <div className="animate-bounce animation-delay-500">
-              <div className="text-3xl font-bold">99.9%</div>
-              <div className="text-blue-100">{t.hero.uptime}</div>
+            <div className="animate-bounce animation-delay-500 flex flex-col items-center justify-center">
+              <div className="text-xl font-bold leading-tight">{t.hero.heroStat3}</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-24 px-4 w-full bg-white">
-        <div className="max-w-7xl mx-auto w-full">
-          <h2 className="text-4xl font-bold text-center mb-20">{t.features.title}</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <section className="py-24 px-4 w-full bg-white text-gray-900 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto w-full text-center">
+          <h2 className="text-4xl font-bold mb-16">{t.features.title}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             {[
               {
                 icon: Zap,
@@ -87,95 +86,42 @@ export default function Home() {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="p-8 bg-gray-50 rounded-lg hover:shadow-lg transition transform hover:scale-105 duration-300"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="group p-8 bg-blue-50/50 rounded-2xl hover:bg-blue-600 hover:text-white transition-all duration-500 shadow-sm"
               >
-                <feature.icon className="w-14 h-14 text-blue-600 mb-6" />
-                <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
-                <p className="text-gray-600 text-base">{feature.description}</p>
+                <div className="w-16 h-16 bg-blue-600 text-white rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:bg-white group-hover:text-blue-600 transition-colors duration-500">
+                  <feature.icon className="w-8 h-8" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                <p className="text-gray-600 group-hover:text-blue-50 transition-colors duration-500 leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      {/* <Testimonials /> */}
 
       {/* Pricing Preview Section */}
       <section className="py-24 px-4 w-full bg-gray-50">
         <div className="max-w-7xl mx-auto w-full">
           <h2 className="text-4xl font-bold text-center mb-20">{t.pricing.title}</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {[
-              {
-                name: t.pricing.starter,
-                price: '9.99',
-                features: [`1 ${t.pricing.website}`, `100 MB ${t.pricing.storage}`, t.pricing.basicSupport],
-              },
-              {
-                name: t.pricing.professional,
-                price: '19.99',
-                features: [`5 ${t.pricing.websites}`, `1 GB ${t.pricing.storage}`, t.pricing.prioritySupport],
-                popular: true,
-              },
-              {
-                name: t.pricing.enterprise,
-                price: '49.99',
-                features: [t.pricing.unlimitedWebsites, t.pricing.unlimitedStorage, t.pricing.support247],
-              },
-            ].map((plan, index) => (
-              <div
-                key={index}
-                className={`p-8 rounded-lg text-center transform transition hover:scale-105 ${plan.popular
-                  ? 'bg-blue-600 text-white shadow-xl'
-                  : 'bg-white border border-gray-200'
-                  }`}
-              >
-                <h3 className="text-2xl font-bold mb-4">{plan.name}</h3>
-                <div className="text-4xl font-bold mb-4">
-                  ${plan.price}
-                  <span className="text-lg text-gray-400">{t.pricing.perMonth}</span>
-                </div>
-                <ul className="space-y-2 mb-8 text-left">
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-center space-x-2">
-                      <span>✓</span>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <button className={`w-full py-3 rounded-lg font-bold transition ${plan.popular
-                  ? 'bg-white text-blue-600 hover:bg-gray-100'
-                  : 'bg-blue-600 text-white hover:bg-blue-700'
-                  }`}>
-                  {t.pricing.getStarted}
-                </button>
-              </div>
-            ))}
-          </div>
+          <PricingGrid limit={3} />
 
-          <div className="text-center">
-            <Link to="/pricing" className="text-blue-600 font-bold hover:underline">
+          <div className="text-center mt-12">
+            <Link to="/websites" className="text-blue-600 font-bold hover:underline">
               {t.pricing.viewAllPlans}
             </Link>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 px-4 w-full bg-blue-600 text-white">
-        <div className="max-w-4xl mx-auto w-full text-center">
-          <h2 className="text-4xl font-bold mb-8">{t.cta.title}</h2>
-          <p className="text-xl mb-10 text-blue-100">
-            {t.cta.subtitle}
-          </p>
-          <Link
-            to="/signup"
-            className="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-bold hover:shadow-lg transform hover:scale-105 transition duration-300"
-          >
-            {t.cta.startTrial}
-          </Link>
-        </div>
-      </section>
+      {/* Portfolio Section */}
+      {/* <Portfolio /> */}
+
     </div>
   );
 }
