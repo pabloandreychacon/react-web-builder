@@ -175,7 +175,7 @@ export default function Contact() {
                 {
                   status === 'success' && (
                     <div className="p-3 bg-green-50 border border-green-200 rounded-lg text-green-800 text-xs">
-                      ✓ Thank you! We've received your message and will get back to you soon.
+                      ✓ {t.form.success}
                     </div>
                   )
                 }
@@ -183,7 +183,7 @@ export default function Contact() {
                 {
                   status === 'error' && (
                     <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-red-800 text-xs">
-                      ✗ Error sending message. Please try again later.
+                      ✗ {t.form.error}
                     </div>
                   )
                 }
@@ -205,25 +205,27 @@ export default function Contact() {
       <section className="py-8 px-4 w-full bg-white">
         <div className="max-w-7xl mx-auto w-full">
           <h2 className="text-2xl font-bold mb-6 text-gray-900">
-            {language === 'es' ? 'Nuestra Ubicación' : 'Our Location'}
+            {t.mapTitle}
           </h2>
           <div className="flex flex-col place-items-start gap-4">
-            <iframe
-              src={mapEmbedUrl}
-              width="600"
-              height="450"
-              style={{ border: 0 }}
-              allowFullScreen={true}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+            <div className="w-full h-[450px] rounded-xl overflow-hidden shadow-inner bg-gray-100">
+              <iframe
+                src={mapEmbedUrl}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
             <a
               href={mapLink}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
             >
-              {language === 'es' ? 'Abrir en Google Maps' : 'Open in Google Maps'}
+              {t.openMaps}
             </a>
           </div>
         </div>

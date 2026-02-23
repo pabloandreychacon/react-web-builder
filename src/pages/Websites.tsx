@@ -1,4 +1,5 @@
 import PricingGrid from '../components/PricingGrid';
+import WebsiteFaq from '../components/WebsiteFaq';
 import { useLanguageStore } from '../stores/languageStore';
 import { translations } from '../lib/translations';
 
@@ -45,6 +46,9 @@ export default function Websites() {
       </section>
 
       {/* Info Section removed as requested */}
+
+      {/* FAQ Section */}
+      <WebsiteFaq />
     </div>
   );
 }

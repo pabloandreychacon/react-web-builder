@@ -10,7 +10,12 @@ export const translations = {
       login: 'Iniciar Sesión',
       signup: 'Registrarse',
       logout: 'Cerrar Sesión',
-      dashboard: 'Panel',
+      dashboard: 'Panel de Control',
+      switchLanguage: 'Cambiar a Inglés',
+    },
+    common: {
+      comingSoon: 'Página próximamente',
+      chatOnWhatsApp: 'Chatear por WhatsApp',
     },
     home: {
       hero: {
@@ -134,6 +139,31 @@ export const translations = {
       ],
       domainNoticeTitle: 'Información sobre el Dominio',
       domainNotice: 'Todos los planes son elegibles para que el cliente adquiera su propio dominio personal, si el cliente lo desea. ¡No te preocupes! Te ayudamos paso a paso en el proceso de compra con tu proveedor preferido.',
+      faq: {
+        title: 'Preguntas Frecuentes sobre Sitios Web',
+        list: [
+          {
+            q: '¿Cuánto tiempo toma crear mi sitio web?',
+            a: 'Dependiendo de la complejidad y el paquete elegido, el proceso toma entre 3 a 7 días hábiles una vez recibida toda la información.'
+          },
+          {
+            q: '¿El dominio es de mi propiedad?',
+            a: '¡Absolutamente! El dominio se registra a tu nombre o el de tu empresa. Tú mantienes el control total y la propiedad de tu identidad digital.'
+          },
+          {
+            q: '¿Puedo actualizar mi sitio después de publicado?',
+            a: 'Sí, dependiendo de tu plan, puedes realizar actualizaciones tú mismo o contar con nuestro soporte para mantener tu contenido al día.'
+          },
+          {
+            q: '¿Qué pasa si ya tengo un dominio?',
+            a: 'No hay problema. Te ayudamos a vincular tu dominio existente con nuestro servicio sin costo adicional.'
+          },
+          {
+            q: '¿Necesito conocimientos técnicos?',
+            a: 'Para nada. Nosotros nos encargamos de toda la configuración técnica, el hosting y la seguridad para que tú te enfoques en tu negocio.'
+          }
+        ]
+      }
     },
     pricing: {
       title: 'Precios Simples y Transparentes',
@@ -253,12 +283,16 @@ export const translations = {
         email: 'Correo Electrónico',
         emailPlaceholder: 'tu@correo.com',
         subject: 'Asunto',
-        subjectPlaceholder: '¿Cómo podemos ayudarte?',
+        subjectPlaceholder: 'Asunto de tu mensaje',
         message: 'Mensaje',
-        messagePlaceholder: 'Cuéntanos más sobre tu consulta...',
+        messagePlaceholder: 'Cuéntanos en qué podemos ayudarte...',
         send: 'Enviar Mensaje',
         sending: 'Enviando...',
+        success: '¡Gracias! Hemos recibido tu mensaje y nos pondremos en contacto contigo pronto.',
+        error: 'Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.'
       },
+      mapTitle: 'Nuestra Ubicación',
+      openMaps: 'Abrir en Google Maps'
     },
     cart: {
       title: 'Carrito de Compras',
@@ -285,6 +319,9 @@ export const translations = {
       total: 'Total',
       days: 'días',
       shippingMethod: 'Método de Envío',
+      paypalUnavailable: 'PayPal no está disponible en este momento. Por favor, contacta a soporte.',
+      backToCart: '← Volver al Carrito',
+      digitalDelivery: 'Entrega Digital',
     },
     footer: {
       tagline: 'Tu sitio web y tu dominio fácil.',
@@ -313,6 +350,11 @@ export const translations = {
       signup: 'Sign Up',
       logout: 'Logout',
       dashboard: 'Dashboard',
+      switchLanguage: 'Switch to Spanish'
+    },
+    common: {
+      comingSoon: 'Page coming soon',
+      chatOnWhatsApp: 'Chat on WhatsApp'
     },
     home: {
       hero: {
@@ -436,6 +478,31 @@ export const translations = {
       ],
       domainNoticeTitle: 'Domain Information',
       domainNotice: 'All plans are eligible for the client to purchase their own personal domain, if the client wishes. Don\'t worry! We help you step by step through the purchase process with your preferred provider.',
+      faq: {
+        title: 'Website FAQ',
+        list: [
+          {
+            q: 'How long does it take to create my website?',
+            a: 'Depending on the complexity and the chosen package, the process takes between 3 to 7 business days once all information is received.'
+          },
+          {
+            q: 'Do I own the domain?',
+            a: 'Absolutely! The domain is registered in your name or your company\'s name. You maintain full control and ownership of your digital identity.'
+          },
+          {
+            q: 'Can I update my site after it\'s published?',
+            a: 'Yes, depending on your plan, you can make updates yourself or count on our support to keep your content up to date.'
+          },
+          {
+            q: 'What if I already have a domain?',
+            a: 'No problem. We help you link your existing domain to our service at no additional cost.'
+          },
+          {
+            q: 'Do I need technical knowledge?',
+            a: 'Not at all. We handle all the technical setup, hosting, and security so you can focus on your business.'
+          }
+        ]
+      }
     },
     pricing: {
       title: 'Simple, Transparent Pricing',
@@ -555,12 +622,16 @@ export const translations = {
         email: 'Email',
         emailPlaceholder: 'your@email.com',
         subject: 'Subject',
-        subjectPlaceholder: 'How can we help?',
+        subjectPlaceholder: 'Subject of your message',
         message: 'Message',
-        messagePlaceholder: 'Tell us more about your inquiry...',
+        messagePlaceholder: 'Tell us how we can help you...',
         send: 'Send Message',
         sending: 'Sending...',
+        success: 'Thank you! We\'ve received your message and will get back to you soon.',
+        error: 'Error sending message. Please try again later.'
       },
+      mapTitle: 'Our Location',
+      openMaps: 'Open in Google Maps'
     },
     cart: {
       title: 'Shopping Cart',
@@ -587,6 +658,9 @@ export const translations = {
       total: 'Total',
       days: 'days',
       shippingMethod: 'Shipping Method',
+      paypalUnavailable: 'PayPal is currently unavailable. Please contact support.',
+      backToCart: '← Back to Cart',
+      digitalDelivery: 'Digital Delivery',
     },
     footer: {
       tagline: 'Create stunning websites and manage domains with ease.',

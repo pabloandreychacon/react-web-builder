@@ -9,11 +9,14 @@ import Contact from './pages/Contact';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import { useLanguageInit } from './hooks/useLanguageInit';
+import { useLanguageStore } from './stores/languageStore';
+import { translations } from './lib/translations';
 import { useSettingsStore } from './stores/settingsStore';
 import { useEffect } from 'react';
 
 function AppContent() {
   useLanguageInit();
+  const { language } = useLanguageStore();
   const fetchSettings = useSettingsStore((state) => state.fetchSettings);
 
   useEffect(() => {
@@ -32,9 +35,9 @@ function AppContent() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           {/* Placeholder routes for future pages */}
-          <Route path="/login" element={<div className="p-8 text-center">Login page coming soon</div>} />
-          <Route path="/signup" element={<div className="p-8 text-center">Sign up page coming soon</div>} />
-          <Route path="/dashboard" element={<div className="p-8 text-center">Dashboard coming soon</div>} />
+          <Route path="/login" element={<div className="p-10 text-center text-xl text-gray-600 bg-white min-h-[400px] flex items-center justify-center">{translations[language].common.comingSoon}...</div>} />
+          <Route path="/signup" element={<div className="p-10 text-center text-xl text-gray-600 bg-white min-h-[400px] flex items-center justify-center">{translations[language].common.comingSoon}...</div>} />
+          <Route path="/dashboard" element={<div className="p-10 text-center text-xl text-gray-600 bg-white min-h-[400px] flex items-center justify-center">{translations[language].common.comingSoon}...</div>} />
         </Routes>
       </main>
       <Footer />

@@ -39,7 +39,7 @@ export default function Navbar() {
             <button
               onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
               className="flex items-center gap-1 text-gray-700 hover:text-blue-600 transition text-sm px-2 py-2 rounded hover:bg-gray-100"
-              title={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+              title={t.nav.switchLanguage}
             >
               <Globe className="w-4 h-4" />
               <span className="font-semibold">{language.toUpperCase()}</span>

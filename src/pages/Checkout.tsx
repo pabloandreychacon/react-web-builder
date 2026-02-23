@@ -47,7 +47,7 @@ export default function Checkout() {
         StatusId: 1,
         PaymentOrderId: paypalOrderId,
         ShippingAddress: shippingAddress,
-        ShippingMethod: 'Digital Delivery',
+        ShippingMethod: t.checkout.digitalDelivery,
         EstimatedDeliveryDate: new Date().toISOString(),
         BuyerEmail: buyerEmail,
         BusinessEmail: businessEmail,
@@ -95,8 +95,8 @@ export default function Checkout() {
           template_params: {
             to_email: businessEmail,
             from_email: buyerEmail,
-            subject: `New Order #${orderNumber}`,
-            message: `Order Number: ${orderNumber}\n\nCustomer: ${buyerName}\nEmail: ${buyerEmail}\n\nItems:\n${itemsList}\n\nSubtotal: $${subtotal.toFixed(2)}\nTotal: $${grandTotal.toFixed(2)}`,
+            subject: `${language === 'es' ? 'Nueva Orden' : 'New Order'} #${orderNumber}`,
+            message: `${language === 'es' ? 'Número de Orden' : 'Order Number'}: ${orderNumber}\n\n${language === 'es' ? 'Cliente' : 'Customer'}: ${buyerName}\nEmail: ${buyerEmail}\n\n${language === 'es' ? 'Artículos' : 'Items'}:\n${itemsList}\n\nSubtotal: $${subtotal.toFixed(2)}\nTotal: $${grandTotal.toFixed(2)}`,
             name: buyerName
           }
         })
@@ -175,7 +175,7 @@ export default function Checkout() {
                       const buyerName = `${details?.payer?.name?.given_name} ${details?.payer?.name?.surname}`;
                       const buyerEmail = details?.payer?.email_address || '';
 
-                      const orderId = await saveOrder(data.orderID, buyerEmail, 'Digital Delivery');
+                      const orderId = await saveOrder(data.orderID, buyerEmail, t.checkout.digitalDelivery);
 
                       if (orderId) {
                         await sendOrderEmail(orderId, buyerName, buyerEmail);
@@ -188,7 +188,7 @@ export default function Checkout() {
                 </PayPalScriptProvider>
               ) : (
                 <div className="p-4 bg-yellow-50 text-yellow-700 rounded-lg text-sm">
-                  PayPal is currently unavailable. Please contact support.
+                  {t.checkout.paypalUnavailable}
                 </div>
               )}
 
@@ -196,7 +196,7 @@ export default function Checkout() {
                 onClick={() => navigate('/cart')}
                 className="w-full mt-4 text-gray-500 hover:text-gray-700 font-medium transition"
               >
-                ← Back to Cart
+                {t.checkout.backToCart}
               </button>
             </div>
           </div>
