@@ -52,6 +52,7 @@ export default function Checkout() {
         BuyerEmail: buyerEmail,
         BusinessEmail: businessEmail,
         IdBusiness: 9, // Matching react-web-builder Id
+        Notes: shippingAddress, // Using the notes string constructed in onApprove
         CreatedAt: new Date().toISOString(),
         UpdatedAt: new Date().toISOString()
       }])
@@ -79,10 +80,8 @@ export default function Checkout() {
     return orderId;
   };
 
-  const sendOrderEmail = async (orderNumber: number, buyerName: string, buyerEmail: string) => {
-    const itemsList = items.map(item =>
-      `${item.name} - $${item.price.toFixed(2)}`
-    ).join('\n');
+  const sendOrderEmail = async (orderNumber: number, buyerName: string, buyerEmail: string, detailedNotes: string) => {
+    const itemsList = detailedNotes;
 
     try {
       await fetch('https://api.emailjs.com/api/v1.0/email/send', {
@@ -175,10 +174,18 @@ export default function Checkout() {
                       const buyerName = `${details?.payer?.name?.given_name} ${details?.payer?.name?.surname}`;
                       const buyerEmail = details?.payer?.email_address || '';
 
-                      const orderId = await saveOrder(data.orderID, buyerEmail, t.checkout.digitalDelivery);
+                      // Construct detailed notes for both DB and Email
+                      const detailedNotes = items.map(item => {
+                        const details = item.details || {};
+                        const featuresPart = details.features ? `\nFeatures:\n- ${details.features.join('\n- ')}` : '';
+                        const pagesPart = details.pages ? ` (${details.pages} ${t.cart?.pages || 'pages'})` : '';
+                        return `${item.name}${pagesPart} - $${item.price.toFixed(2)}\nDescription: ${details.description || 'N/A'}${featuresPart}\n`;
+                      }).join('\n' + '-'.repeat(30) + '\n');
+
+                      const orderId = await saveOrder(data.orderID, buyerEmail, detailedNotes);
 
                       if (orderId) {
-                        await sendOrderEmail(orderId, buyerName, buyerEmail);
+                        await sendOrderEmail(orderId, buyerName, buyerEmail, detailedNotes);
                         clearCart();
                         setOrderNumber(orderId);
                         setShowSuccessModal(true);
