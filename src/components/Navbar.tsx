@@ -42,7 +42,7 @@ export default function Navbar() {
               title={t.nav.switchLanguage}
             >
               <Globe className="w-4 h-4" />
-              <span className="font-semibold">{language.toUpperCase()}</span>
+              <span className="font-semibold">{language === 'es' ? 'EN' : 'ES'}</span>
             </button>
 
             {/* Cart Icon */}
