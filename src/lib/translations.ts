@@ -139,6 +139,8 @@ export const translations = {
       ],
       domainNoticeTitle: 'Información sobre el Dominio',
       domainNotice: 'Todos los planes son elegibles para que el cliente adquiera su propio dominio personal, si el cliente lo desea. ¡No te preocupes! Te ayudamos paso a paso en el proceso de compra con tu proveedor preferido.',
+      codeDisclaimerTitle: 'Información sobre el Código Fuente',
+      codeDisclaimer: 'Para los paquetes profesional, empresarial y e-commerce el código es de React y solo se entrega el código fuente para el paquete E-commerce. Si se desea el código fuente de React para el paquete profesional ($300 adicionales) o empresarial ($500 adicionales), o si se desea el código en Vanilla JS, se debe negociar previamente.',
       faq: {
         title: 'Preguntas Frecuentes sobre Sitios Web',
         list: [
@@ -478,6 +480,8 @@ export const translations = {
       ],
       domainNoticeTitle: 'Domain Information',
       domainNotice: 'All plans are eligible for the client to purchase their own personal domain, if the client wishes. Don\'t worry! We help you step by step through the purchase process with your preferred provider.',
+      codeDisclaimerTitle: 'Source Code Information',
+      codeDisclaimer: 'For the Professional, Enterprise, and E-commerce packages, the code is React-based, and source code is only delivered for the E-commerce package. If React source code is desired for the Professional ($300 additional) or Enterprise ($500 additional) packages, or if the code is desired as Vanilla JS, it must be negotiated in advance.',
       faq: {
         title: 'Website FAQ',
         list: [
