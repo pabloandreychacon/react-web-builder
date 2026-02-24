@@ -186,6 +186,7 @@ export const translations = {
             'Código fuente entregado',
             'Email personal o con proveedor del dominio',
             'Soporte por Correo',
+            'Idiomas Español e Inglés incluidos por defecto',
           ],
         },
         professional: {
@@ -198,6 +199,7 @@ export const translations = {
             'Optimizado para SEO',
             'Email personal o con proveedor del dominio',
             '5 páginas web',
+            'Idiomas Español e Inglés incluidos por defecto',
           ],
         },
         enterprise: {
@@ -211,6 +213,7 @@ export const translations = {
             'Email personal o con proveedor del dominio',
             '5 páginas web',
             'Mantenimiento de productos, servicios y datos de la empresa en línea',
+            'Idiomas Español e Inglés incluidos por defecto',
           ],
         },
         ecommerce: {
@@ -225,6 +228,7 @@ export const translations = {
             'Datos dinámicos en productos, servicios y datos de la empresa',
             'Diseño Responsivo',
             'Optimizado para SEO',
+            'Idiomas Español e Inglés incluidos por defecto',
           ],
         },
       },
@@ -527,6 +531,7 @@ export const translations = {
             'Complete source code delivered',
             'Personal email or domain provider email',
             'Email Support',
+            'Spanish and English languages included by default',
           ],
         },
         professional: {
@@ -539,6 +544,7 @@ export const translations = {
             'SEO Optimized',
             'Personal email or domain provider email',
             '5 web pages',
+            'Spanish and English languages included by default',
           ],
         },
         enterprise: {
@@ -552,6 +558,7 @@ export const translations = {
             'Personal email or domain provider email',
             '5 web pages',
             'Online maintenance of products, services and company data',
+            'Spanish and English languages included by default',
           ],
         },
         ecommerce: {
@@ -566,6 +573,7 @@ export const translations = {
             'Dynamic data for products, services and company information',
             'Responsive Design',
             'SEO Optimized',
+            'Spanish and English languages included by default',
           ],
         },
       },
