@@ -89,17 +89,11 @@ export default function Navbar() {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden pb-4 space-y-3">
-            <Link to="/" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded">{t.nav.home}</Link>
-            <Link to="/websites" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded">{t.nav.pricing}</Link>
-            <Link to="/domains" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded">{t.nav.domains}</Link>
-            <Link to="/templates" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded">{t.nav.templates}</Link>
-            <Link to="/contact" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded">{t.nav.contact}</Link>
-            {!user && (
-              <>
-                <Link to="/login" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded">{t.nav.login}</Link>
-                <Link to="/signup" className="block px-4 py-3 bg-blue-600 text-white rounded">{t.nav.signup}</Link>
-              </>
-            )}
+            <Link to="/" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded">{t.nav.home}</Link>
+            <Link to="/websites" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded">{t.nav.pricing}</Link>
+            <Link to="/domains" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded">{t.nav.domains}</Link>
+            <Link to="/templates" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded">{t.nav.templates}</Link>
+            <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded">{t.nav.contact}</Link>
           </div>
         )}
       </div>

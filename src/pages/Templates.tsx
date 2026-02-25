@@ -9,12 +9,12 @@ export default function Templates() {
   return (
     <div className="bg-gray-50 min-h-screen pb-20">
       {/* Header Section */}
-      <section className="bg-blue-600 py-20 px-4 text-white">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+      <section className="bg-blue-600 py-12 px-4 text-white w-full">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-3xl font-bold mb-2">
             {t.title}
           </h1>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base text-blue-100 leading-relaxed">
             {t.subtitle}
           </p>
         </div>
@@ -23,7 +23,7 @@ export default function Templates() {
       {/* Resources Section */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">
             {t.resourcesTitle}
           </h2>
 
