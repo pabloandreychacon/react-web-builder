@@ -7,11 +7,45 @@ export const translations = {
       domains: 'Dominios',
       pricing: 'Precios',
       contact: 'Contacto',
+      templates: 'Plantillas',
       login: 'Iniciar Sesión',
       signup: 'Registrarse',
       logout: 'Cerrar Sesión',
       dashboard: 'Panel de Control',
       switchLanguage: 'Cambiar a Inglés',
+    },
+    templates: {
+      title: 'Elige Tu Plantilla Web',
+      subtitle: 'Si no tienes una plantilla web, ¡no te preocupes! Elige una de las mejores opciones de la web o nosotros escogeremos una por ti, todo incluido en el precio.',
+      resourcesTitle: 'Mejores Recursos de Plantillas',
+      visit: 'Visitar',
+      list: [
+        {
+          name: 'Wix Templates',
+          url: 'https://www.wix.com/website/templates',
+          description: 'Cientos de plantillas diseñadas profesionalmente para cualquier industria.'
+        },
+        {
+          name: 'Canva Website Templates',
+          url: 'https://www.canva.com/websites/templates/',
+          description: 'Diseños visualmente impactantes y fáciles de personalizar.'
+        },
+        {
+          name: 'Figma Community',
+          url: 'https://www.figma.com/community/explore?q=website%20template',
+          description: 'Plantillas de diseño moderno creadas por la comunidad global de Figma.'
+        },
+        {
+          name: 'ThemeForest',
+          url: 'https://themeforest.net/category/site-templates',
+          description: 'La biblioteca más grande del mundo de plantillas web premium.'
+        },
+        {
+          name: 'HTML5 UP',
+          url: 'https://html5up.net/',
+          description: 'Plantillas HTML5 y CSS3 gratuitas, totalmente responsivas y modernas.'
+        }
+      ]
     },
     common: {
       comingSoon: 'Página próximamente',
@@ -23,6 +57,7 @@ export const translations = {
         subtitle: 'Te creamos páginas web profesionales, fáciles de usar y listas para hacer crecer tu negocio en línea',
         startBuilding: 'Comenzar',
         findDomain: 'Buscar un Dominio',
+        viewTemplates: 'Ver Plantillas',
         heroStat1: 'Creamos su sitio hoy',
         heroStat2: 'Su negocio en línea ya',
         heroStat3: 'Siempre visto alrededor del mundo 24/7',
@@ -298,7 +333,9 @@ export const translations = {
         error: 'Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.'
       },
       mapTitle: 'Nuestra Ubicación',
-      openMaps: 'Abrir en Google Maps'
+      openMaps: 'Abrir en Google Maps',
+      about: 'Sobre Nosotros',
+      aboutText: 'Conoce más sobre nuestra trayectoria y visión en nuestro sitio personal.'
     },
     cart: {
       title: 'Carrito de Compras',
@@ -352,11 +389,45 @@ export const translations = {
       domains: 'Domains',
       pricing: 'Pricing',
       contact: 'Contact',
+      templates: 'Templates',
       login: 'Login',
       signup: 'Sign Up',
       logout: 'Logout',
       dashboard: 'Dashboard',
       switchLanguage: 'Switch to Spanish'
+    },
+    templates: {
+      title: 'Choose Your Web Template',
+      subtitle: 'If you don\'t have a web template, don\'t worry! Choose one from the best options on the web or we will choose one for you, all included in the price.',
+      resourcesTitle: 'Best Template Resources',
+      visit: 'Visit',
+      list: [
+        {
+          name: 'Wix Templates',
+          url: 'https://www.wix.com/website/templates',
+          description: 'Hundreds of professionally designed templates for any industry.'
+        },
+        {
+          name: 'Canva Website Templates',
+          url: 'https://www.canva.com/websites/templates/',
+          description: 'Visually stunning and easy-to-customize designs.'
+        },
+        {
+          name: 'Figma Community',
+          url: 'https://www.figma.com/community/explore?q=website%20template',
+          description: 'Modern design templates created by the global Figma community.'
+        },
+        {
+          name: 'ThemeForest',
+          url: 'https://themeforest.net/category/site-templates',
+          description: 'The world\'s largest library of premium web templates.'
+        },
+        {
+          name: 'HTML5 UP',
+          url: 'https://html5up.net/',
+          description: 'Free, fully responsive and modern HTML5 and CSS3 templates.'
+        }
+      ]
     },
     common: {
       comingSoon: 'Page coming soon',
@@ -368,6 +439,7 @@ export const translations = {
         subtitle: 'We create professional, easy-to-use websites ready to grow your business online',
         startBuilding: 'Start Building',
         findDomain: 'Find a Domain',
+        viewTemplates: 'View Templates',
         heroStat1: 'We build your site today',
         heroStat2: 'Your business online now',
         heroStat3: 'Always seen around the world 24/7',
@@ -643,7 +715,9 @@ export const translations = {
         error: 'Error sending message. Please try again later.'
       },
       mapTitle: 'Our Location',
-      openMaps: 'Open in Google Maps'
+      openMaps: 'Open in Google Maps',
+      about: 'About Us',
+      aboutText: 'Learn more about our journey and vision on our personal site.'
     },
     cart: {
       title: 'Shopping Cart',

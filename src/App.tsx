@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Websites from './pages/Websites';
 import Domains from './pages/Domains';
 import Contact from './pages/Contact';
+import Templates from './pages/Templates';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import { useLanguageInit } from './hooks/useLanguageInit';
@@ -32,6 +33,7 @@ function AppContent() {
           <Route path="/" element={<Home />} />
           <Route path="/websites" element={<Websites />} />
           <Route path="/domains" element={<Domains />} />
+          <Route path="/templates" element={<Templates />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />

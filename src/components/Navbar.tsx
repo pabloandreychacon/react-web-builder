@@ -29,7 +29,7 @@ export default function Navbar() {
             <Link to="/" className="text-gray-700 hover:text-blue-600 transition text-sm px-2 py-2 rounded hover:bg-gray-100">{t.nav.home}</Link>
             <Link to="/websites" className="text-gray-700 hover:text-blue-600 transition text-sm px-2 py-2 rounded hover:bg-gray-100">{t.nav.pricing}</Link>
             <Link to="/domains" className="text-gray-700 hover:text-blue-600 transition text-sm px-2 py-2 rounded hover:bg-gray-100">{t.nav.domains}</Link>
-            {/* Pricing link removed - prices are on Websites page */}
+            <Link to="/templates" className="text-gray-700 hover:text-blue-600 transition text-sm px-2 py-2 rounded hover:bg-gray-100">{t.nav.templates}</Link>
             <Link to="/contact" className="text-gray-700 hover:text-blue-600 transition text-sm px-2 py-2 rounded hover:bg-gray-100">{t.nav.contact}</Link>
           </div>
 
@@ -92,7 +92,7 @@ export default function Navbar() {
             <Link to="/" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded">{t.nav.home}</Link>
             <Link to="/websites" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded">{t.nav.pricing}</Link>
             <Link to="/domains" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded">{t.nav.domains}</Link>
-            {/* Pricing link removed - prices are on Websites page */}
+            <Link to="/templates" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded">{t.nav.templates}</Link>
             <Link to="/contact" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded">{t.nav.contact}</Link>
             {!user && (
               <>

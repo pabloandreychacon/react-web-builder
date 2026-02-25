@@ -27,18 +27,24 @@ export default function Home() {
             {t.hero.subtitle}
           </p>
 
-          <div className="flex flex-col sm:flex-row justify-center gap-6 mb-16">
+          <div className="flex flex-col sm:flex-row justify-center gap-6 mb-16 px-4">
             <Link
               to="/websites"
-              className="bg-white text-blue-600 px-10 py-5 rounded-lg font-bold hover:shadow-lg transform hover:scale-105 transition duration-300 text-lg"
+              className="bg-white text-blue-600 px-6 py-4 rounded-lg font-bold hover:shadow-lg transform hover:scale-105 transition duration-300 text-lg flex-1 sm:flex-none"
             >
               {t.hero.startBuilding}
             </Link>
             <Link
               to="/domains"
-              className="border-2 border-white text-white px-10 py-5 rounded-lg font-bold hover:bg-white hover:text-blue-600 transition duration-300 text-lg"
+              className="border-2 border-white text-white px-6 py-4 rounded-lg font-bold hover:bg-white hover:text-blue-600 transition duration-300 text-lg flex-1 sm:flex-none"
             >
               {t.hero.findDomain}
+            </Link>
+            <Link
+              to="/templates"
+              className="bg-blue-500 text-white px-6 py-4 rounded-lg font-bold hover:bg-blue-400 transition duration-300 text-lg flex-1 sm:flex-none shadow-lg border border-blue-400"
+            >
+              {t.hero.viewTemplates}
             </Link>
           </div>
 

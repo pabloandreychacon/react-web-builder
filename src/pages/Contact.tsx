@@ -101,6 +101,26 @@ export default function Contact() {
                   {address}
                 </p>
               </div>
+
+              <div className="bg-white p-4 rounded-lg shadow border-2 border-blue-100">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="p-2 bg-blue-100 rounded-lg">
+                    <Mail className="w-5 h-5 text-blue-600" />
+                  </div>
+                  <h3 className="font-bold text-base">{t.about}</h3>
+                </div>
+                <p className="text-gray-600 text-sm mb-4">
+                  {t.aboutText}
+                </p>
+                <a
+                  href="https://andreychaconresumereact.netlify.app/about"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-blue-600 font-semibold hover:underline text-sm"
+                >
+                  {t.about} →
+                </a>
+              </div>
             </div>
 
             {/* Contact Form */}
