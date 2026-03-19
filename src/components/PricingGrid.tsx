@@ -25,6 +25,10 @@ export default function PricingGrid({ limit }: PricingGridProps) {
       price: 200,
     },
     {
+      id: 'ecommerce_basic',
+      price: 500,
+    },
+    {
       id: 'ecommerce',
       price: 2000,
     },
@@ -49,7 +53,7 @@ export default function PricingGrid({ limit }: PricingGridProps) {
             popular={pkg.popular}
             priceLabel={pkg.id === 'starter'
               ? (language === 'es' ? '/página' : '/page')
-              : (pkg.id === 'professional' || pkg.id === 'enterprise' || pkg.id === 'ecommerce')
+              : (pkg.id === 'professional' || pkg.id === 'enterprise' || pkg.id === 'ecommerce' || pkg.id === 'ecommerce_basic')
                 ? ''
                 : (language === 'es' ? '/mes' : '/month')}
             language={language as 'es' | 'en'}
