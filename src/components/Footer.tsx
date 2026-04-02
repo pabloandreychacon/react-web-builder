@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguageStore } from '../stores/languageStore';
 import { useSettingsStore } from '../stores/settingsStore';
@@ -69,15 +69,23 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Social Links */}
-        <div className="border-t border-gray-700 mt-8 pt-8">
-          <div className="flex justify-between items-center">
+        {/* Social Links — pr reserves space for fixed WhatsAppButton (bottom-right) */}
+        <div className="border-t border-gray-700 mt-8 pt-8 pr-24 sm:pr-28 pb-4">
+          <div className="flex justify-between items-center gap-4">
             <p className="text-sm">&copy; {currentYear} {siteName}. {t.rights}</p>
             <div className="flex space-x-4">
-              {/* <a href="#" className="hover:text-blue-400 transition"><Facebook className="w-5 h-5" /></a> */}
+              <a href="https://www.facebook.com/profile.php?id=61576354271866" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                </svg>
+              </a>
               {/* <a href="#" className="hover:text-blue-400 transition"><Twitter className="w-5 h-5" /></a> */}
-              <a href="https://www.linkedin.com/in/pabloandreychaconluna/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition">
-                <Linkedin className="w-5 h-5" />
+              <a href="https://www.linkedin.com/in/pabloandreychaconluna/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition" aria-label="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                  <rect width="4" height="12" x="2" y="9" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
               </a>
               <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition">
                 <MessageCircle className="w-5 h-5" />
