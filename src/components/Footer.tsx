@@ -93,6 +93,12 @@ export default function Footer() {
             </div>
           </div>
         </div>
+
+        {/* qr code */}
+        <div className="flex justify-center items-center">
+          { /* https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=https%3A%2F%2Fyourpageonline.netlify.app%2F&qzone=1&margin=0&size=400x400&ecc=L */}
+          <img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=https%3A%2F%2Fyourpageonline.netlify.app%2F&qzone=1&margin=0&size=400x400&ecc=L" alt="QR Code" className="w-24 h-24" />
+        </div>
       </div>
     </footer>
   );
