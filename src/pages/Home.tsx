@@ -126,7 +126,19 @@ export default function Home() {
       </section>
 
       {/* Portfolio Section */}
-      {/* <Portfolio /> */}
+      <section className="py-24 px-4 w-full bg-gray-50">
+        <div className="max-w-7xl mx-auto w-full">
+          <h2 className="text-4xl font-bold text-center mb-20">{t.portfolio.title}</h2>
+
+          {/* iframe to https://andreychaconresumereact.netlify.app/portfolio */}
+          <iframe
+            src="https://andreychaconresumereact.netlify.app/portfolio"
+            className="w-full h-[600px] border-0"
+            title="Portfolio"
+          />
+
+        </div>
+      </section>
 
     </div>
   );
