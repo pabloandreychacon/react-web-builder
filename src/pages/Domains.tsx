@@ -1,22 +1,20 @@
 import { useLanguageStore } from '../stores/languageStore';
 import { translations } from '../lib/translations';
 import { ExternalLink } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function Domains() {
   const { language } = useLanguageStore();
   const t = translations[language].domains;
 
-  const providers = [
-    { name: 'Hostinger', url: 'https://www.hostinger.com', logo: '🌐' },
-    { name: 'GoDaddy', url: 'https://www.godaddy.com', logo: '🌐' },
-    { name: 'Namecheap', url: 'https://www.namecheap.com', logo: '🌐' },
-    { name: 'Google Domains', url: 'https://domains.google', logo: '🌐' },
-    { name: 'Cloudflare', url: 'https://www.cloudflare.com/products/registrar/', logo: '🌐' },
-    { name: 'Domain.com', url: 'https://www.domain.com', logo: '🌐' },
-  ];
-
   return (
-    <div className="min-h-screen bg-gray-50">
+    <>
+      <SEO
+        title="Domain Registration - Go Online Now"
+        description="Find and register the perfect domain name for your website. Compare domain providers and get the best deals on domain registration."
+        keywords="domain registration, buy domain, domain names, website domain, domain providers"
+      />
+      <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <section className="bg-blue-600 text-white py-12 px-4 w-full">
         <div className="max-w-7xl mx-auto">
@@ -82,5 +80,6 @@ export default function Domains() {
         </div>
       </section>
     </div>
+    </>
   );
 }

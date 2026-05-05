@@ -1,5 +1,6 @@
 import PricingGrid from '../components/PricingGrid';
 import WebsiteFaq from '../components/WebsiteFaq';
+import SEO from '../components/SEO';
 import { useLanguageStore } from '../stores/languageStore';
 import { translations } from '../lib/translations';
 
@@ -8,7 +9,13 @@ export default function Websites() {
   const t = translations[language].websites;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <>
+      <SEO
+        title="Website Packages - Go Online Now"
+        description="Choose from our professional website packages. Get a custom website built for your business with hosting, domain, and support included."
+        keywords="website packages, web development, business websites, custom websites, website pricing"
+      />
+      <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <section className="bg-blue-600 text-white py-12 px-4 w-full">
         <div className="max-w-7xl mx-auto">
@@ -71,5 +78,6 @@ export default function Websites() {
         </div>
       </section>
     </div>
+    </>
   );
 }

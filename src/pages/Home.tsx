@@ -4,6 +4,7 @@ import homewebBg from '../assets/homeweb.jpg';
 import { useLanguageStore } from '../stores/languageStore';
 import { translations } from '../lib/translations';
 import PricingGrid from '../components/PricingGrid';
+import SEO from '../components/SEO';
 // import Testimonials from '../components/Testimonials';
 // import Portfolio from '../components/Portfolio';
 
@@ -11,6 +12,13 @@ export default function Home() {
   const { language } = useLanguageStore();
   const t = translations[language].home;
   return (
+    <>
+      <SEO
+        title="Go Online Now - Create Your Website Today"
+        description="Build professional websites instantly with Go Online Now. Create stunning web presences with our easy-to-use website builder. Get online today!"
+        keywords="website builder, web design, create website, online presence, professional websites"
+      />
+      <div className="min-h-screen flex flex-col">
     <div className="min-h-screen flex flex-col">
       {/* Hero Section */}
       <section className="relative py-32 px-4 w-full text-white overflow-hidden">
@@ -141,6 +149,7 @@ export default function Home() {
       </section>
 
     </div>
+    </>
   );
 }
 

@@ -8,6 +8,7 @@ import { useSettingsStore } from '../stores/settingsStore';
 import { useLanguageStore } from '../stores/languageStore';
 import { translations } from '../lib/translations';
 import { supabase } from '../lib/supabase';
+import SEO from '../components/SEO';
 
 export default function Checkout() {
   const navigate = useNavigate();
@@ -108,7 +109,13 @@ export default function Checkout() {
   if (items.length === 0 && !showSuccessModal) return null;
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-8 pb-20">
+    <>
+      <SEO
+        title="Checkout - Go Online Now"
+        description="Complete your purchase. Secure checkout for website packages and domain registration."
+        keywords="checkout, payment, website purchase, PayPal checkout, order summary"
+      />
+      <div className="min-h-screen bg-gray-50 pt-8 pb-20">
       <div className="max-w-7xl mx-auto px-4">
         <h1 className="text-4xl font-bold mb-12">{t.checkout.title}</h1>
 
@@ -238,5 +245,6 @@ export default function Checkout() {
         </div>
       )}
     </div>
+    </>
   );
 }

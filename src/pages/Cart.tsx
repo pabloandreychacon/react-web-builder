@@ -3,6 +3,7 @@ import { Trash2, ShoppingCart } from 'lucide-react';
 import { useCartStore } from '../stores/cartStore';
 import { useLanguageStore } from '../stores/languageStore';
 import { translations } from '../lib/translations';
+import SEO from '../components/SEO';
 
 export default function Cart() {
   const navigate = useNavigate();
@@ -12,6 +13,16 @@ export default function Cart() {
   const removeItem = useCartStore((state) => state.removeItem);
   const getTotal = useCartStore((state) => state.getTotal);
 
+  if (items.length === 0) {
+    return (
+      <>
+        <SEO
+          title="Shopping Cart - Go Online Now"
+          description="Review your shopping cart. Add website packages and domains before proceeding to checkout."
+          keywords="shopping cart, website cart, checkout, domain cart, order summary"
+        />
+        <div className="min-h-screen flex flex-col bg-gray-50">
+
   const handleCheckout = () => {
     if (items.length === 0) return;
     navigate('/checkout');
@@ -19,7 +30,13 @@ export default function Cart() {
 
   if (items.length === 0) {
     return (
-      <div className="min-h-screen flex flex-col bg-gray-50">
+      <>
+        <SEO
+          title="Shopping Cart - Go Online Now"
+          description="Review your shopping cart. Add website packages and domains before proceeding to checkout."
+          keywords="shopping cart, website cart, checkout, domain cart, order summary"
+        />
+        <div className="min-h-screen flex flex-col bg-gray-50">
         <div className="flex-1 flex items-center justify-center px-4">
           <div className="text-center">
             <ShoppingCart className="w-16 h-16 text-gray-400 mx-auto mb-4" />
@@ -42,11 +59,18 @@ export default function Cart() {
           </div>
         </div>
       </div>
+      </>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <>
+      <SEO
+        title="Shopping Cart - Go Online Now"
+        description="Review your shopping cart. Add website packages and domains before proceeding to checkout."
+        keywords="shopping cart, website cart, checkout, domain cart, order summary"
+      />
+      <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 py-16">
         <h1 className="text-4xl font-bold mb-12">{t.title}</h1>
 
@@ -120,5 +144,6 @@ export default function Cart() {
         </div>
       </div>
     </div>
+    </>
   );
 }

@@ -1,13 +1,20 @@
 import { ExternalLink, Palette, Layout, Search, Sparkles } from 'lucide-react';
 import { useLanguageStore } from '../stores/languageStore';
 import { translations } from '../lib/translations';
+import SEO from '../components/SEO';
 
 export default function Templates() {
   const { language } = useLanguageStore();
   const t = translations[language].templates;
 
   return (
-    <div className="bg-gray-50 min-h-screen pb-20">
+    <>
+      <SEO
+        title="Website Templates - Go Online Now"
+        description="Browse our collection of professional website templates. Find the perfect design for your business and get online quickly."
+        keywords="website templates, web design templates, responsive templates, business templates, template gallery"
+      />
+      <div className="bg-gray-50 min-h-screen pb-20">
       {/* Header Section */}
       <section className="bg-blue-600 py-12 px-4 text-white w-full">
         <div className="max-w-7xl mx-auto">
@@ -86,5 +93,6 @@ export default function Templates() {
         </div>
       </section>
     </div>
+    </>
   );
 }

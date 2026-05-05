@@ -5,6 +5,7 @@ import { sanitizeInput, sanitizeEmail } from '../lib/security';
 import { useLanguageStore } from '../stores/languageStore';
 import { useSettingsStore } from '../stores/settingsStore';
 import { translations } from '../lib/translations';
+import SEO from '../components/SEO';
 
 export default function Contact() {
   const { language } = useLanguageStore();
@@ -14,6 +15,14 @@ export default function Contact() {
   const latitude = useSettingsStore((state) => state.latitude);
   const longitude = useSettingsStore((state) => state.longitude);
   const t = translations[language].contact;
+
+  return (
+    <>
+      <SEO
+        title="Contact Us - Go Online Now"
+        description="Get in touch with Go Online Now. We're here to help you build your perfect website. Contact us for consultations and support."
+        keywords="contact us, website consultation, web development support, get in touch, customer service"
+      />
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -61,7 +70,13 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <>
+      <SEO
+        title="Contact Us - Go Online Now"
+        description="Get in touch with Go Online Now. We're here to help you build your perfect website. Contact us for consultations and support."
+        keywords="contact us, website consultation, web development support, get in touch, customer service"
+      />
+      <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <section className="bg-blue-600 text-white py-12 px-4">
         <div className="max-w-7xl mx-auto">
@@ -251,5 +266,6 @@ export default function Contact() {
         </div>
       </section>
     </div>
+    </>
   );
 }
